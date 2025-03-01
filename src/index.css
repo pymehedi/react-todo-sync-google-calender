@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-openSans: "Open Sans", serif;
+}
+
+.react-datepicker-wrapper {
+  display: block !important;
+  width: 100% !important;
+}
+.react-datepicker__input-container input {
+  width: 100% !important;
+}
