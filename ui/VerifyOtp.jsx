@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function VerifyOtp() {
   const navigate = useNavigate();
@@ -19,12 +20,12 @@ function VerifyOtp() {
         }
       );
       if (response.data.status === "success") {
-        console.log(response.data);
+        toast.success("OTP verified");
         navigate("/verify-2fa");
       }
     } catch (error) {
+      toast.error("Invalid OTP");
       console.log(error);
-      console.log(error.message);
       navigate("/login");
     } finally {
       setOtp("");

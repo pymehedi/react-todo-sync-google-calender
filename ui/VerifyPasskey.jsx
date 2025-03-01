@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function VerifyPassKey() {
   const navigate = useNavigate();
@@ -19,12 +20,12 @@ function VerifyPassKey() {
         }
       );
       if (response.data.status == "success") {
-        console.log(response.data);
+        toast.success("Passkey verified");
         navigate("/app");
       }
     } catch (error) {
+      toast.error("Invalid passkey");
       console.error(error);
-      console.log(error.message);
     } finally {
       setPasskey("");
     }

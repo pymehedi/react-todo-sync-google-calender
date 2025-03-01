@@ -69,13 +69,15 @@ const Dashboard = () => {
   }
   async function handleDelete(id) {
     try {
-      const response = await axios.delete(`https://todo-sync-google-calender.onrender.com/task/${id}`, {
-        withCredentials: true,
-      });
+      const response = await axios.delete(
+        `https://todo-sync-google-calender.onrender.com/task/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
 
       if (response.data.status === "success") {
         toast.success("Successfully deleted");
-        // Update the state to remove the deleted task
         setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
       }
     } catch (error) {
@@ -87,9 +89,12 @@ const Dashboard = () => {
   useEffect(function () {
     async function fetchTasks() {
       try {
-        const response = await axios.get("https://todo-sync-google-calender.onrender.com/tasks", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://todo-sync-google-calender.onrender.com/tasks",
+          {
+            withCredentials: true,
+          }
+        );
         setTasks(response.data.tasks);
       } catch (error) {
         console.error(error);

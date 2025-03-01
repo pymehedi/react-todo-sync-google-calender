@@ -30,11 +30,9 @@ function Register() {
       if (response.data.status === "success") {
         toast.success("User created successfully");
         setImageQr(response.data.data.qrCode);
-        console.log(response.data.data.qrCode);
-        console.log(response.data);
       }
     } catch (error) {
-      console.error(error.message);
+      toast.error("Email is already exist");
       console.log(error);
     } finally {
       // Clear the form fields after submitting

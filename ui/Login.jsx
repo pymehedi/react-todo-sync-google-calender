@@ -22,14 +22,11 @@ function Login() {
         }
       );
       if (response.data.status == "success") {
-        console.log(response.data);
-        toast.success("Login successfully done");
+        toast.success("Check email for OTP");
         navigate("/verify-otp");
       }
     } catch (error) {
       toast.error("Incorrect email or password");
-      console.log(error.response);
-      console.log(error.status);
       console.log(error);
     } finally {
       setEmail("");
