@@ -16,6 +16,7 @@ import Settings from "../ui/Settings";
 import ToDo from "../ui/ToDo";
 import Dashboard from "../ui/Dashboard";
 import PageLayout from "../ui/PageLayout";
+import PageNotFound from "../ui/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             element: <ToDo />,
           },
         ],
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
       },
     ],
   },
